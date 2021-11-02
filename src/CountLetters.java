@@ -9,9 +9,12 @@ public class CountLetters {
         System.out.print("Введите слово (только буквы, пожалуйста): ");
         String word = scan.nextLine();
         word = word.toUpperCase();
-
         for (int i = 0; i < word.length(); i++) {
-            counts[word.charAt(i) - 'A']++;
+            try {
+                counts[word.charAt(i) - 'A']++;
+            } catch (ArrayIndexOutOfBoundsException e) {
+                System.out.println("символ " + word.charAt(i) + " обнаружен в веденной строке на позиции " + i);
+            }
         }
         System.out.println();
 
